@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2f6b5f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="工作健康羅盤" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>工作健康羅盤</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <style>
+    :root{
+      --bg:#f6f3ec; --card:#fffaf1; --card2:#ffffff; --ink:#23312e; --muted:#66736f;
+      --brand:#2f6b5f; --brand2:#8fc6b2; --accent:#f0aa48; --danger:#c8584a; --yellow:#d79b25; --green:#4f9b69;
+      --line:rgba(35,49,46,.14); --shadow:0 18px 45px rgba(35,49,46,.10); --radius:24px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top left,#dff2e8 0,#f6f3ec 32%,#f7efe4 100%); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; line-height:1.55;}
+    body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(47,107,95,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(47,107,95,.035) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:-1}
+    .app{max-width:920px;margin:0 auto;padding:18px 14px 90px}.hero{position:relative;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:30px;padding:26px 22px;background:linear-gradient(135deg,#2f6b5f 0%,#3f8374 52%,#f0aa48 140%);color:white;min-height:220px}.hero h1{margin:0;font-size:clamp(28px,7vw,48px);letter-spacing:.02em}.hero p{margin:10px 0 0;max-width:680px;color:rgba(255,255,255,.88);font-size:16px}.hero-art{position:absolute;right:-10px;bottom:-18px;width:min(260px,48vw);opacity:.92}.pill{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);font-weight:700;margin-bottom:12px}.top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{appearance:none;border:0;border-radius:999px;padding:12px 16px;background:var(--brand);color:#fff;font-weight:800;box-shadow:0 8px 20px rgba(47,107,95,.18);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}.btn.secondary{background:#fff;color:var(--brand);box-shadow:none;border:1px solid rgba(255,255,255,.5)}.btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--line);box-shadow:none}.btn.warn{background:var(--accent);color:#322410}.btn.danger{background:var(--danger)}.btn.small{padding:9px 12px;font-size:13px}.nav{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow:auto;padding:12px 0;margin:0 -2px;background:linear-gradient(180deg,rgba(246,243,236,.96),rgba(246,243,236,.78));backdrop-filter:blur(12px)}.nav a{white-space:nowrap;text-decoration:none;color:var(--muted);background:rgba(255,255,255,.7);border:1px solid var(--line);padding:10px 12px;border-radius:999px;font-weight:800}.nav a.active{background:var(--brand);color:#fff;border-color:transparent}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 12;background:rgba(255,250,241,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;overflow:hidden}.card.white{background:rgba(255,255,255,.9)}.half{grid-column:span 6}.third{grid-column:span 4}@media(max-width:720px){.half,.third{grid-column:span 12}.app{padding-left:12px;padding-right:12px}.hero{padding:22px 18px}.hero-art{opacity:.28}.btn{width:100%}.top-actions .btn{width:auto}.nav{top:0}}h2{font-size:24px;margin:0 0 8px}h3{margin:0 0 8px;font-size:18px}.muted{color:var(--muted)}.section{margin-top:14px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.space{justify-content:space-between}.field{display:grid;gap:6px;margin:10px 0}.field label{font-weight:800;color:#31423e}.field small{color:var(--muted)}input,textarea,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 14px;color:var(--ink);font:inherit;outline:none}textarea{min-height:78px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--brand2);box-shadow:0 0 0 4px rgba(143,198,178,.24)}.traffic{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.traffic button{border:1px solid var(--line);border-radius:18px;padding:14px 10px;background:#fff;font-weight:900;cursor:pointer;color:var(--ink)}.traffic .green.active{background:rgba(79,155,105,.14);border-color:rgba(79,155,105,.55)}.traffic .yellow.active{background:rgba(215,155,37,.17);border-color:rgba(215,155,37,.55)}.traffic .red.active{background:rgba(200,88,74,.16);border-color:rgba(200,88,74,.55)}.light-dot{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-2px}.dot-green{background:var(--green)}.dot-yellow{background:var(--yellow)}.dot-red{background:var(--danger)}.stat{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px}.stat svg{flex:0 0 52px}.big{font-size:34px;font-weight:900}.mini-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px}.checklist{display:grid;gap:8px}.check{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}.check input{width:20px;height:20px;flex:0 0 auto;margin-top:2px}.timer{font-variant-numeric:tabular-nums;font-size:42px;font-weight:950;letter-spacing:.02em}.breath{display:grid;place-items:center;min-height:260px;text-align:center}.circle{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,#fff 0 45%,rgba(143,198,178,.38) 46% 100%);border:2px solid rgba(47,107,95,.2);animation:breathe 8s infinite ease-in-out;box-shadow:0 0 0 22px rgba(143,198,178,.10)}@keyframes breathe{0%,100%{transform:scale(.82)}50%{transform:scale(1.08)}}.toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:#23312e;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:var(--shadow);z-index:20;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1}.bottom-bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,250,241,.88);backdrop-filter:blur(18px);border-top:1px solid var(--line);z-index:12}.bottom-inner{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px calc(8px + env(safe-area-inset-bottom))}.bottom-inner a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:900;text-align:center;border-radius:16px;padding:8px 4px}.bottom-inner a.active{background:var(--brand);color:#fff}.tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:rgba(47,107,95,.10);border:1px solid rgba(47,107,95,.14);border-radius:999px;color:var(--brand);font-weight:800;font-size:13px}.food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}@media(max-width:560px){.food-grid{grid-template-columns:1fr}.traffic{grid-template-columns:1fr}.timer{font-size:36px}}.history{display:grid;gap:10px}.history-item{border:1px solid var(--line);background:#fff;border-radius:18px;padding:12px}.history-item time{font-weight:900;color:var(--brand)}.empty{border:1px dashed rgba(47,107,95,.26);border-radius:18px;padding:16px;text-align:center;color:var(--muted);background:rgba(255,255,255,.45)}.install{background:linear-gradient(135deg,#fff,#eef8f3);}.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;border:1px solid var(--line);border-bottom-width:3px;border-radius:8px;padding:1px 6px}.quote{font-size:18px;font-weight:900;background:#fff;border-left:6px solid var(--brand);padding:14px;border-radius:16px}.hide{display:none!important}.modal{position:fixed;inset:0;background:rgba(35,49,46,.42);z-index:40;display:none;place-items:center;padding:18px}.modal.show{display:grid}.modal-card{max-width:560px;width:100%;background:var(--card);border-radius:28px;padding:20px;border:1px solid rgba(255,255,255,.6);box-shadow:0 25px 80px rgba(0,0,0,.25)}.svg-wrap{width:100%;max-width:320px;margin:8px auto 0;display:block}.danger-text{color:var(--danger);font-weight:900}.smallnote{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="pill">🧭 工作健康羅盤</div>
+      <h1>卡住時，先回到全局。</h1>
+      <p>這不是要你更用力，而是讓你在壓力、細節與血糖波動中，有一個可以反覆回來的導航系統。</p>
+      <div class="top-actions">
+        <a class="btn secondary" href="#stuck">我現在卡住了</a>
+        <a class="btn secondary" href="#fuel">想吃碳水前先看</a>
+        <button class="btn warn" id="panicBtn">3 分鐘重置</button>
+      </div>
+      <svg class="hero-art" viewBox="0 0 360 260" fill="none" aria-hidden="true">
+        <circle cx="260" cy="130" r="96" fill="rgba(255,255,255,.16)"/>
+        <circle cx="260" cy="130" r="66" fill="rgba(255,255,255,.17)"/>
+        <path d="M258 49l18 82-74 42 56-124z" fill="#fff" opacity=".88"/>
+        <path d="M262 211l-18-82 74-42-56 124z" fill="#f7d69d" opacity=".95"/>
+        <path d="M40 198c28-72 82-105 160-98" stroke="rgba(255,255,255,.75)" stroke-width="16" stroke-linecap="round"/>
+        <path d="M56 198h108" stroke="rgba(255,255,255,.55)" stroke-width="12" stroke-linecap="round"/>
+      </svg>
+    </header>
+
+    <nav class="nav" id="nav">
+      <a href="#today" class="active">今日羅盤</a>
+      <a href="#stuck">卡住急救</a>
+      <a href="#fuel">穩定燃料</a>
+      <a href="#review">回顧</a>
+      <a href="#install">加入手機</a>
+    </nav>
+
+    <main class="grid">
+      <section class="card" id="today">
+        <div class="row space">
+          <div>
+            <h2>今日羅盤</h2>
+            <p class="muted">每天只要三次，把腦中的不安變成可管理的進度。</p>
+          </div>
+          <span class="tag" id="todayDate">今天</span>
+        </div>
+        <div class="grid section">
+          <div class="card white third">
+            <h3>上午</h3>
+            <div class="field"><label>最重要目標</label><textarea id="morningGoal" placeholder="今天最重要的是什麼？"></textarea></div>
+            <div class="field"><label>下一步</label><input id="morningNext" placeholder="下一個可完成動作" /></div>
+          </div>
+          <div class="card white third">
+            <h3>下午</h3>
+            <div class="field"><label>目前卡點</label><textarea id="afternoonBlock" placeholder="卡在哪裡？是資料、假設、規格、時間、依賴？"></textarea></div>
+            <div class="field"><label>紅黃綠</label><select id="afternoonLight"><option value="green">綠燈：知道下一步</option><option value="yellow">黃燈：卡很久但還能描述</option><option value="red">紅燈：看不清問題類型</option></select></div>
+          </div>
+          <div class="card white third">
+            <h3>下班前</h3>
+            <div class="field"><label>今天留下的線索</label><textarea id="eveningNote" placeholder="今天確認了什麼？明天第一步是什麼？"></textarea></div>
+            <button class="btn" id="saveToday">保存今日紀錄</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>目前狀態</h2>
+        <div class="section stat">
+          <svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="22" fill="none" stroke="rgba(47,107,95,.14)" stroke-width="8"/><circle id="progressCircle" cx="26" cy="26" r="22" fill="none" stroke="#2f6b5f" stroke-width="8" stroke-linecap="round" stroke-dasharray="138" stroke-dashoffset="82" transform="rotate(-90 26 26)"/></svg>
+          <div><div class="big" id="scoreText">0%</div><div class="muted">今天羅盤完成度</div></div>
+        </div>
+        <p class="quote">工作不順時，失去全局感不是失敗，而是提示你該切換模式。</p>
+      </section>
+
+      <section class="card half">
+        <h2>90 分鐘黃燈提醒</h2>
+        <p class="muted">同一個細節卡超過 90 分鐘，就不是更用力，而是重新整理全局。</p>
+        <div class="row section">
+          <button class="btn" id="startReminder">開啟頁面內提醒</button>
+          <button class="btn ghost" id="stopReminder">停止</button>
+        </div>
+        <p class="smallnote">提醒只會在這個頁面開著時運作；手機鎖定或瀏覽器關閉後，系統可能不會執行。</p>
+      </section>
+
+      <section class="card" id="stuck">
+        <div class="row space">
+          <div>
+            <h2>卡住急救：5 行儀表板</h2>
+            <p class="muted">先不要繼續鑽。用 5 行把問題拉回可驗證狀態。</p>
+          </div>
+          <button class="btn danger" id="clearStuck">清空</button>
+        </div>
+        <div class="grid section">
+          <div class="half">
+            <div class="field"><label>目前目標</label><textarea id="target" placeholder="我要完成/確認的是什麼？"></textarea></div>
+            <div class="field"><label>現在卡點</label><textarea id="block" placeholder="最具體的卡點是什麼？"></textarea></div>
+            <div class="field"><label>已知事實</label><textarea id="facts" placeholder="哪些是已量到、已確認、不是猜測的事？"></textarea></div>
+          </div>
+          <div class="half">
+            <div class="field"><label>未知/假設</label><textarea id="unknowns" placeholder="哪些還只是猜測？缺哪個資訊？"></textarea></div>
+            <div class="field"><label>下一個 30 分鐘只驗證</label><textarea id="next30" placeholder="只做一件可驗證的事"></textarea></div>
+            <div class="traffic" role="group" aria-label="紅黃綠判斷">
+              <button class="green active" data-light="green"><span class="light-dot dot-green"></span>綠燈<br><small>知道下一步</small></button>
+              <button class="yellow" data-light="yellow"><span class="light-dot dot-yellow"></span>黃燈<br><small>卡很久</small></button>
+              <button class="red" data-light="red"><span class="light-dot dot-red"></span>紅燈<br><small>問題不清</small></button>
+            </div>
+            <div class="row section">
+              <button class="btn" id="saveStuck">保存卡點</button>
+              <button class="btn ghost" id="copyStuck">複製摘要</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>30 分鐘驗證計時</h2>
+        <p class="muted">把「我要解決全部」縮小成「只驗證一個假設」。</p>
+        <div class="timer" id="timer">30:00</div>
+        <div class="row section">
+          <button class="btn" id="startTimer">開始</button>
+          <button class="btn ghost" id="pauseTimer">暫停</button>
+          <button class="btn ghost" id="resetTimer">重設</button>
+        </div>
+      </section>
+
+      <section class="card half">
+        <h2>3 分鐘重置流程</h2>
+        <div class="checklist section">
+          <label class="check"><input type="checkbox" class="resetCheck"><span>離開座位，讓身體先退出戰鬥模式。</span></label>
+          <label class="check"><input type="checkbox" class="resetCheck"><span>寫下 5 行儀表板，不在腦中硬想。</span></label>
+          <label class="check"><input type="checkbox" class="resetCheck"><span>判斷紅黃綠燈：我是否知道下一步？</span></label>
+          <label class="check"><input type="checkbox" class="resetCheck"><span>真的餓，再選穩定燃料；不要用裸碳水救急。</span></label>
+        </div>
+      </section>
+
+      <section class="card" id="fuel">
+        <div class="row space">
+          <div>
+            <h2>穩定燃料：想吃碳水前先看</h2>
+            <p class="muted">不是完全禁碳水，而是避免血糖大起大落。先蛋白質，再碳水。</p>
+          </div>
+          <span class="tag">🍚 + 🥚 + 🥬</span>
+        </div>
+        <div class="food-grid section">
+          <div class="mini-card"><h3>茶葉蛋 + 無糖豆漿</h3><p class="muted">適合早上或下午腦力下降時。</p></div>
+          <div class="mini-card"><h3>地瓜半條 + 雞胸/蛋</h3><p class="muted">保留碳水，但降低波動。</p></div>
+          <div class="mini-card"><h3>無糖優格 + 少量堅果</h3><p class="muted">嘴饞時比甜點穩定。</p></div>
+          <div class="mini-card"><h3>飯量減半 + 豆腐/魚/青菜</h3><p class="muted">正餐不用極端，先調順序與比例。</p></div>
+          <div class="mini-card"><h3>毛豆 + 無糖茶</h3><p class="muted">適合會議前或長時間查資料前。</p></div>
+          <div class="mini-card"><h3>飯後走 10–15 分鐘</h3><p class="muted">兼具血糖緩衝與全局抽離。</p></div>
+        </div>
+        <div class="section mini-card">
+          <h3>今日飲食提醒</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox" id="noSugarDrink"><span>今天不喝含糖飲料。</span></label>
+            <label class="check"><input type="checkbox" id="proteinFirst"><span>每餐先確認蛋白質，再吃碳水。</span></label>
+            <label class="check"><input type="checkbox" id="walkAfterMeal"><span>至少一次飯後走 10–15 分鐘。</span></label>
+          </div>
+        </div>
+        <p class="smallnote danger-text">如果你已經有糖尿病前期、低血糖症狀或正在用藥，飲食調整請和醫師/營養師確認。</p>
+      </section>
+
+      <section class="card" id="review">
+        <div class="row space">
+          <div>
+            <h2>回顧紀錄</h2>
+            <p class="muted">不是檢討自己，而是找出什麼情境最容易讓你失去全局感。</p>
+          </div>
+          <div class="row">
+            <button class="btn ghost small" id="exportData">匯出 JSON</button>
+            <button class="btn ghost small" id="clearAll">清除全部</button>
+          </div>
+        </div>
+        <div class="history section" id="history"><div class="empty">還沒有紀錄。先從今日羅盤或卡住急救開始。</div></div>
+      </section>
+
+      <section class="card install" id="install">
+        <h2>加入手機主畫面</h2>
+        <div class="grid section">
+          <div class="half mini-card"><h3>iPhone / iPad</h3><p>用 Safari 開啟後，按分享按鈕，選擇「加入主畫面」。</p></div>
+          <div class="half mini-card"><h3>Android / Chrome</h3><p>用 Chrome 開啟後，按右上角選單，選擇「安裝應用程式」或「加入主畫面」。</p></div>
+        </div>
+        <p class="smallnote">資料儲存在你的瀏覽器 localStorage，不會上傳到任何伺服器。</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="bottom-bar" aria-hidden="false">
+    <div class="bottom-inner">
+      <a href="#today" class="active">🧭<br>今日</a>
+      <a href="#stuck">🛟<br>卡住</a>
+      <a href="#fuel">🍱<br>燃料</a>
+      <a href="#review">📘<br>回顧</a>
+    </div>
+  </div>
+
+  <div class="modal" id="panicModal">
+    <div class="modal-card">
+      <div class="row space"><h2>先讓系統降載</h2><button class="btn ghost small" id="closePanic">關閉</button></div>
+      <div class="breath">
+        <div>
+          <div class="circle"></div>
+          <h3 id="breathText" style="margin-top:24px">吸氣 4 秒，吐氣 6 秒</h3>
+          <p class="muted">先不用想完整答案。讓身體回到可思考狀態。</p>
+          <a class="btn" href="#stuck" id="goStuck">寫 5 行儀表板</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast">已保存</div>
+
+  <script>
+    const $ = (id)=>document.getElementById(id);
+    const qs = (sel)=>document.querySelector(sel);
+    const qsa = (sel)=>Array.from(document.querySelectorAll(sel));
+    const KEY = 'work-health-compass-v1';
+    const todayKey = new Date().toISOString().slice(0,10);
+    let state = JSON.parse(localStorage.getItem(KEY)||'{"entries":[],"daily":{}}');
+    let selectedLight = 'green';
+    function save(){localStorage.setItem(KEY, JSON.stringify(state)); updateHistory(); updateScore();}
+    function toast(msg='已保存'){const t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1800)}
+    function nowString(){return new Date().toLocaleString('zh-TW',{hour12:false});}
+    function getDaily(){state.daily[todayKey] ||= {}; return state.daily[todayKey];}
+    function restoreDaily(){const d=getDaily(); ['morningGoal','morningNext','afternoonBlock','afternoonLight','eveningNote','noSugarDrink','proteinFirst','walkAfterMeal'].forEach(id=>{const el=$(id); if(!el)return; if(el.type==='checkbox') el.checked=!!d[id]; else if(d[id]) el.value=d[id];});}
+    function updateScore(){const ids=['morningGoal','morningNext','afternoonBlock','eveningNote','noSugarDrink','proteinFirst','walkAfterMeal']; let done=0; ids.forEach(id=>{const el=$(id); if(el && (el.type==='checkbox'?el.checked:el.value.trim())) done++;}); const pct=Math.round(done/ids.length*100); $('scoreText').textContent=pct+'%'; $('progressCircle').style.strokeDashoffset = String(138 - 138*pct/100);}
+    function collectDaily(){const d=getDaily(); ['morningGoal','morningNext','afternoonBlock','afternoonLight','eveningNote','noSugarDrink','proteinFirst','walkAfterMeal'].forEach(id=>{const el=$(id); if(!el)return; d[id]= el.type==='checkbox'?el.checked:el.value;}); d.updatedAt=nowString();}
+    ['morningGoal','morningNext','afternoonBlock','afternoonLight','eveningNote','noSugarDrink','proteinFirst','walkAfterMeal'].forEach(id=>{$(id)?.addEventListener('input',()=>{collectDaily(); save();}); $(id)?.addEventListener('change',()=>{collectDaily(); save();});});
+    $('saveToday').addEventListener('click',()=>{collectDaily(); state.entries.unshift({type:'今日羅盤',time:nowString(),light:$('afternoonLight').value,summary:$('eveningNote').value||$('morningGoal').value||'今日紀錄已保存'}); state.entries=state.entries.slice(0,80); save(); toast('今日紀錄已保存');});
+    qsa('.traffic button').forEach(btn=>btn.addEventListener('click',()=>{qsa('.traffic button').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); selectedLight=btn.dataset.light;}));
+    function stuckSummary(){return `目前目標：${$('target').value}\n現在卡點：${$('block').value}\n已知事實：${$('facts').value}\n未知/假設：${$('unknowns').value}\n下一個 30 分鐘只驗證：${$('next30').value}\n紅黃綠：${selectedLight}`;}
+    $('saveStuck').addEventListener('click',()=>{state.entries.unshift({type:'卡住急救',time:nowString(),light:selectedLight,summary:stuckSummary()}); state.entries=state.entries.slice(0,80); save(); toast('卡點已保存');});
+    $('copyStuck').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(stuckSummary()); toast('已複製摘要');}catch(e){toast('無法複製，請手動選取');}});
+    $('clearStuck').addEventListener('click',()=>{['target','block','facts','unknowns','next30'].forEach(id=>$(id).value=''); toast('已清空');});
+    function updateHistory(){const box=$('history'); if(!state.entries.length){box.innerHTML='<div class="empty">還沒有紀錄。先從今日羅盤或卡住急救開始。</div>';return;} box.innerHTML=state.entries.slice(0,20).map(e=>`<div class="history-item"><time>${escapeHtml(e.time)}</time><div><span class="tag">${escapeHtml(e.type)} · ${lightName(e.light)}</span></div><p>${escapeHtml(e.summary).replace(/\n/g,'<br>')}</p></div>`).join('');}
+    function lightName(v){return v==='red'?'紅燈':v==='yellow'?'黃燈':'綠燈'}
+    function escapeHtml(s=''){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+    $('exportData').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='工作健康羅盤紀錄.json'; a.click(); URL.revokeObjectURL(url);});
+    $('clearAll').addEventListener('click',()=>{if(confirm('確定清除全部本機紀錄？')){state={entries:[],daily:{}}; localStorage.setItem(KEY, JSON.stringify(state)); location.reload();}});
+    let remain=30*60, timerId=null; function renderTimer(){const m=String(Math.floor(remain/60)).padStart(2,'0'); const s=String(remain%60).padStart(2,'0'); $('timer').textContent=`${m}:${s}`;} $('startTimer').addEventListener('click',()=>{if(timerId)return; timerId=setInterval(()=>{remain--; renderTimer(); if(remain<=0){clearInterval(timerId); timerId=null; remain=30*60; renderTimer(); notify('30 分鐘到了','停一下：這 30 分鐘驗證到什麼？是否需要回到全局？'); toast('30 分鐘到了，請回顧驗證結果');}},1000);}); $('pauseTimer').addEventListener('click',()=>{clearInterval(timerId); timerId=null;}); $('resetTimer').addEventListener('click',()=>{clearInterval(timerId); timerId=null; remain=30*60; renderTimer();});
+    let reminderId=null; $('startReminder').addEventListener('click',async()=>{if('Notification' in window && Notification.permission==='default'){try{await Notification.requestPermission();}catch(e){}} clearInterval(reminderId); reminderId=setInterval(()=>notify('90 分鐘黃燈提醒','如果你還在同一個細節，請寫 5 行儀表板。'),90*60*1000); toast('已開啟頁面內 90 分鐘提醒');}); $('stopReminder').addEventListener('click',()=>{clearInterval(reminderId); reminderId=null; toast('已停止提醒');});
+    function notify(title,body){if('Notification' in window && Notification.permission==='granted'){new Notification(title,{body,icon:'icon-192.png'});} else {alert(title+'\n'+body);} }
+    $('panicBtn').addEventListener('click',()=>$('panicModal').classList.add('show')); $('closePanic').addEventListener('click',()=>$('panicModal').classList.remove('show')); $('goStuck').addEventListener('click',()=>$('panicModal').classList.remove('show'));
+    qsa('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>setTimeout(updateActiveNav,60))); window.addEventListener('scroll', updateActiveNav); function updateActiveNav(){const ids=['today','stuck','fuel','review','install']; let current='today'; ids.forEach(id=>{const el=$(id); if(el && el.getBoundingClientRect().top<160) current=id;}); qsa('.nav a,.bottom-inner a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));}
+    $('todayDate').textContent=new Date().toLocaleDateString('zh-TW',{weekday:'long',month:'long',day:'numeric'});
+    qsa('.resetCheck').forEach(cb=>cb.addEventListener('change',()=>{const all=qsa('.resetCheck').every(x=>x.checked); if(all)toast('重置完成，現在只做下一步');}));
+    if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+    restoreDaily(); updateHistory(); updateScore(); renderTimer();
+  </script>
+</body>
+</html>
